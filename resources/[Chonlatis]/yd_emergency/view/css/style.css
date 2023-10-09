@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Kanit';
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    overflow: hidden;
+}
+
+.alert-container {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 150px;
+    width: 350px;
+    height: 100vh;
+}
+
+.alert {
+    display: none;
+    position: relative;
+    padding: 2px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #f8c026;
+    transform: scale(0.95);
+}
+
+.bg {
+    display: flex;
+    background: rgba(248, 192, 38, 0.85);
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    font-size: 3rem;
+    font-weight: bolder;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-right: 8px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: bolder;
+}
+
+.header img {
+    margin-right: 8px;
+}
+
+.getter {
+    padding: 3px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    color: #222;
+}
+
+.body {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.accept {
+    border-color: #19a884;
+}
+
+.accept .bg {
+    background: rgba(25, 168, 132, 0.35);
+}
+
+.f-center {
+    display: flex;
+    align-items: center;
+}
+
+.pdl {
+    padding-left: 10px;
+    font-size: 0.795em;
+    line-height: 1.85;
+    border-left: 5px solid rgba(255, 255, 255, 0.65);
+    margin-left: 5px;
+    font-style: italic;
+}
+
+.mt {
+    margin-top: 2px;
+}
+
+.mb {
+    margin-bottom: 2px;
+}

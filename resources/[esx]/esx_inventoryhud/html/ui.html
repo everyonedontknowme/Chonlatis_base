@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>กระเป๋า</title>
+
+
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
+    <link rel="stylesheet" type="text/css" href="css/scotty.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@600&display=swap');
+    </style>
+</head>
+
+<body style="background: none;">
+    <script src="js/config.js"></script>
+    <script src="locales/en.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/scotty.js"></script>
+    <script>
+        function setInputFilter(textbox, inputFilter) {
+            ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                textbox.addEventListener(event, function() {
+                    if (inputFilter(this.value)) {
+                        this.oldValue = this.value;
+                        this.oldSelectionStart = this.selectionStart;
+                        this.oldSelectionEnd = this.selectionEnd;
+                    } else if (this.hasOwnProperty("oldValue")) {
+                        this.value = this.oldValue;
+                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    }
+                });
+            });
+        }
+        $(function() {
+            setInputFilter(document.getElementById("count"), function(value) {
+                return /^\d*\.?\d*$/.test(value);
+            });
+        });
+    </script>
+	
+
+	
+    <div class="ui" style="display: none;">
+        <div class="middle">
+            <div class="inventory">
+                <div class="row" style="margin: 0;">
+                    <div id="give_id" class="give_id_class" style="display: none;z-index: 99999999;">
+                        <div class="form-group mx-sm-3 mb-1" style="margin-top: 5%;"><input type="number" class="form-control text-center" id="give_id_player" min="1" placeholder="กรุณาใส่ไอดี"></div>
+                        <div class="text-center"> <button type="button" class="btn btn-outline-light" id="confirm_id" style="width: 90%;margin-top: 15px;">CONFIRM</button></div>
+                    </div>
+                    <div id="count_give" style="display: none;">
+                        <div class="count_id_class">
+                            <div class="form-group mx-sm-3 mb-1" style="margin-top: 5%;">
+                                <div id="count_input"><input type="number" class="form-control text-center" id="count" placeholder="กรุณาใส่จำนวน"></div>
+                            </div>
+                            <div class="text-center"> <button type="button" class="btn btn-outline-light" id="confirm_count" style="width: 90%;margin-top: 15px;">CONFIRM</button></div>
+                        </div>
+                        <div class="count_id_classbt text-center" id="confirm_count_max"><button type="button" class="btn btn-outline-light" style="margin-top: 15px;">MAX</button></div>
+                    </div>
+					<div id="col-other" class="col s6" style="display: none;">
+                        <div style="z-index: 99999;position: relative;top: 4.6%; right: 6%; text-align: right;color: white;" id="other-weight">
+                            <span id="sWeight">12</span> / <span id="sMaxWeight">30</span> Kg.
+                        </div>
+                        <div class="header" style="width: 690px; border-width: 2px 2px 0px 2px; border-style: solid; border-color: #0acdf9;">
+                            <div style="font-size: 20px; color: white; margin-left: 20px; margin-top: 5px;" id="other-header">INVENTORY</div>
+                        </div>
+                        <div id="otherInventory" class="inventory-scroll" style="margin:0;padding:15px;border-width: 0px 2px 2px 2px; border-style: solid; border-color: #0acdf9;">
+							<!--<div class="slot"><div id="itemOther-1" class="item" style = "background-image: url('https://cdn.discordapp.com/attachments/772344429280231454/806901091203416084/asda.png')">
+								<div class="item-count">5</div><div class="item-weight"> 0.5 KG</div></div > <div class="item-name">test</div>
+							</div>-->
+						</div>
+                    </div>
+                    <div id="playerInventoryFastItems">
+						<!--<div class="col"><div id="playersource">#111</div></div>
+						<div class="col">
+							<div class="keybind">1</div>
+							<div class="slotFast"><div id="itemFast-1" class="itemfast item" >
+							<div class="item-count"></div>  </div ></div>
+						</div>-->
+                    </div>
+                    <div id="col-inventory" class="col s6" style="padding: 0;">
+                        <div style="z-index: 99999;position: relative;top: 4.6%; right: 3%; text-align: right; color: rgb(250, 250, 250);">
+                            <span id="fWeight">12</span> / <span id="fMaxWeight">30</span> Kg.
+                        </div>
+                        <div class="header">
+                            <div style="font-size: 20px; color: white; margin-left: 20px; margin-top: 5px;">INVENTORY</div>
+                        </div>
+                        <div class="content-wrap">
+                            <div id="playerInventory" class="inventory-scroll">
+								<!-- <div class="slot"><div id="item-1" class="item" style = ""><div class="item-count">4</div><div class="item-weight"> 0.5 KG</div> </div ><div class="item-name">TEST</div></div> -->
+							</div>
+							<div id="playerweight">
+								<div id="text-full">FULL</div>
+								<div class="weight_bar_s">
+								<div class="weight_bar"></div></div>
+								<div id="text-min">MIN</div>
+							</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dialog">
+        <div id="nearPlayers">
+        </div>
+    </div>
+
+</body>
+
+<script>
+    $(document).ready(function() {
+        $("#use").find("span").html(invLocale.useItem);
+        $("#give").find("span").html(invLocale.giveItem);
+        $("#drop").find("span").html(invLocale.dropItem);
+        $("#noSecondInventoryMessage").html(invLocale.secondInventoryNotAvailable);
+    });
+</script>
+
+</html>

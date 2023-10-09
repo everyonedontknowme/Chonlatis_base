@@ -1,0 +1,156 @@
+@font-face {
+	font-family: bankgothic;
+	src: url('../fonts/bankgothic.ttf');
+}
+
+@font-face {
+	font-family: pcdown;
+	src: url('../fonts/pdown.ttf');
+}
+
+@font-face {
+    font-family: 'Sukhumvit';
+    src: url('../fonts/SukhumvitSet.woff2') format('woff2'),
+        url('../fonts/SukhumvitSet.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sukhumvit';
+    src: url('../fonts/SukhumvitSet-Thin.woff') format('woff2'),
+        url('../fonts/SukhumvitSet-Thin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background: rgba(0,0,0,0.25); 
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.5); 
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(255,255,255,0.8); 
+}
+
+html, body {
+	overflow: hidden;
+}
+
+.menu {
+	font-family: Sukhumvit;
+	min-width: 400px;
+	color: #fff;
+	box-shadow: 0px 0px 45px -10px #222;
+	position: absolute;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.menu.align-left {
+	left: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-top-left {
+	left: 40;
+	top: 40;
+}
+
+.menu.align-top {
+	left: 50%;
+	top: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-top-right {
+	right: 10;
+	top: 40;
+}
+
+.menu.align-right {
+	right: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-bottom-right {
+	right: 40;
+	bottom: 40;
+}
+
+.menu.align-bottom {
+	left: 50%;
+	bottom: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-bottom-left {
+	left: 40;
+	bottom: 40;
+}
+
+.menu.align-center {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.menu .head {
+	background: linear-gradient(to left, rgba(255, 153, 0, 0.9) 0%, rgb(255, 208, 0) 100%);
+	text-align: center;
+	height: 80px;
+	line-height: 80px;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+.menu .menu-items {
+	position: relative;
+	max-height: 600px;
+	overflow-y: auto;
+	background: linear-gradient(159deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+	color: #fff;
+}
+
+.menu .menu-items .menu-item {
+	position: relative;
+	height: 40px;
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	text-align: left;
+	padding: 0 15px;
+	overflow: hidden;
+	transition-duration: .15s;
+	z-index: 1;
+}
+.menu .menu-items .menu-item .slider{
+	position: absolute;
+	height: 32px;
+	line-height: 32px;
+	text-align: right;
+	right: 15px;
+	top: 0;
+}
+
+.menu .menu-items .menu-item.selected {
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+
+@keyframes fadeYeetLect {
+	from {
+		width: 0px;
+		opacity: 0;
+	}
+
+	to {
+		width: 100%;
+		opacity: 1;
+	}
+}

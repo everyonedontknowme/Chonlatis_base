@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Kanit;
+    color: #d0d0d0;
+}
+
+html {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.position {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+}
+
+.alert {
+    transition: all 3s;
+}
+
+.body-notify {
+    position: relative;
+    width: -moz-fit-content;
+    flex-direction: column;
+    background: rgba(25, 25, 25, .8);
+    padding: 2px 10px;
+    width: fit-content;
+    margin-left: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.body-notify span {
+    margin-left: 10px
+}
+
+.border-left-error {
+    background: red
+}
+
+.border-left-error,
+.border-left-success {
+    position: absolute;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    margin-right: 5px
+}
+
+.border-left-success {
+    background: #6c00ff
+}
+
+.slide-left-out {
+    animation: slide-left-out .8 forwards
+}
+
+.slide-left-in {
+    animation: slide-left .8 forwards
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all .8s ease-out
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px)
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(100px)
+    }
+
+    to {
+        transform: translateX(0)
+    }
+}
+
+@keyframes slide-left-out {
+    to {
+        transform: translateX(100px)
+    }
+
+    0% {
+        transform: translateX(0)
+    }
+}

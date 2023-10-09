@@ -1,0 +1,37 @@
+วิธีใช้
+
+ส่งจาก Client:
+Template : TriggerServerEvent('dst_agency_noty:sendAlert', อาชีพ, หัวข้อ, ข้อความ, table ตำแหน่ง x y)
+TriggerServerEvent('dst_agency_noty:sendAlert', 'mechanic', 'แจ้งซ่อม 1-1-1', 'มีเคสซ่อมเข้า ด่วนเลย!!!', {
+        x = -49.23,
+        y = 16.34
+})
+
+ส่งจาก Server:
+Template : TriggerEvent('dst_agency_noty:sendAlert', -1, อาชีพ, หัวข้อ, ข้อความ, table ตำแหน่ง x y)
+TriggerEvent('dst_agency_noty:sendAlert', -1, 'mechanic', 'แจ้งซ่อม 1-1-1', 'มีเคสซ่อมเข้า ด่วนเลย!!!', {
+        x = -49.23,
+        y = 16.34
+})
+
+ใช้งาน Exports ฝั่ง Server
+Template: exports.dst_agency_noty:sendAlert(อาชีพ, หัวข้อ, ข้อความ, table ตำแหน่ง x, y)
+exports.dst_agency_noty:sendAlert('mechanic', 'แจ้งซ่อม 1-1-1', 'มีเคสซ่อมเข้า ด่วนเลย!!!', {
+        x = -49.23,
+        y = 16.34
+})
+
+ในส่วนของข้อความและหัวข้อสามารถใช้ Emoji และภาษา HTML ได้
+เว้นบรรทัดใช้ <br>
+ข้อความหนาใช้ <strong>...</strong>
+ข้อความเอียงใช้ <i>...</i>
+อื่นๆ ค้นหาได้ตามเว็บไซต์
+
+-------------------------
+
+วิธีดึงตำแหน่ง Ped
+local coords = GetEntityCoords(PlayerPedId())
+
+วิธีดึงชื่อตำแหน่งที่ Ped อยู่
+local zone = GetNameOfZone(coords.x, coords.y, coords.z)
+local labelZone = GetLabelText(zone)
